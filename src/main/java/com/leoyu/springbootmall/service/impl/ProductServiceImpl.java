@@ -1,6 +1,7 @@
 package com.leoyu.springbootmall.service.impl;
 
 import com.leoyu.springbootmall.dao.ProductDao;
+import com.leoyu.springbootmall.dto.ProductRequest;
 import com.leoyu.springbootmall.model.Product;
 import com.leoyu.springbootmall.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,5 +18,8 @@ public class ProductServiceImpl implements ProductService {
         return productDao.getProductById(productId);
     }
 
-
+    @Override
+    public Integer createProduct(ProductRequest productRequest) {
+        return productDao.createProduct(productRequest);
+    }
 }
