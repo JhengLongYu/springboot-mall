@@ -1,6 +1,6 @@
 package com.leoyu.springbootmall.dao;
 
-import com.leoyu.springbootmall.constant.ProductCategory;
+import com.leoyu.springbootmall.dto.ProductQueryParams;
 import com.leoyu.springbootmall.dto.ProductRequest;
 import com.leoyu.springbootmall.model.Product;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ProductDao {
 
-    List<Product> getProducts(ProductCategory category, String search);
+    List<Product> getProducts(ProductQueryParams productQueryParams);
 
     Product getProductById(Integer productId);
 
