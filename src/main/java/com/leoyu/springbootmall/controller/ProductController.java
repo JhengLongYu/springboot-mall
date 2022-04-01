@@ -1,5 +1,6 @@
 package com.leoyu.springbootmall.controller;
 
+import com.leoyu.springbootmall.constant.ProductCategory;
 import com.leoyu.springbootmall.dto.ProductRequest;
 import com.leoyu.springbootmall.model.Product;
 import com.leoyu.springbootmall.service.ProductService;
@@ -24,8 +25,11 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping("/products")
-    public ResponseEntity<List<Product>> getProducts(){
-        List<Product> productList = productService.getProducts();
+    public ResponseEntity<List<Product>> getProducts(
+            @RequestParam(required = false) ProductCategory category,
+            @RequestParam(required = false) String search
+            ){
+        List<Product> productList = productService.getProducts(category, search);
         return ResponseEntity.status(HttpStatus.OK).body(productList);
 
     }
