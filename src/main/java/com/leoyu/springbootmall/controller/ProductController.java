@@ -3,8 +3,13 @@ package com.leoyu.springbootmall.controller;
 import com.leoyu.springbootmall.dto.ProductRequest;
 import com.leoyu.springbootmall.model.Product;
 import com.leoyu.springbootmall.service.ProductService;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +31,25 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+
+    //Swagger 練習用
+//    @ApiResponses(value = {
+//            @ApiResponse(code=200, message="查詢成功"),
+//            @ApiResponse(code=404, message="無此商品")
+//    })
+//    @ApiOperation(value = "查詢商品", notes = "查詢商品12")
+//    @GetMapping("/products/{productId}")
+//    public ResponseEntity<Product> getProduct(
+//            @ApiParam(required = true, value = "商品序號")
+//            @PathVariable Integer productId) {
+//        Product product = productService.getProductById(productId);
+//        if(product != null){
+//            return ResponseEntity.status(HttpStatus.OK).body(product);
+//        }else{
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//    }
 
     @PostMapping("/products")
     public ResponseEntity<Product> createProduct(@RequestBody @Valid ProductRequest productRequest) {
