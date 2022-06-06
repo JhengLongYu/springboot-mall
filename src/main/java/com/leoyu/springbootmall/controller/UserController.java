@@ -1,5 +1,6 @@
 package com.leoyu.springbootmall.controller;
 
+import com.leoyu.springbootmall.dto.UserLoginRequest;
 import com.leoyu.springbootmall.dto.UserRegisterRequest;
 import com.leoyu.springbootmall.model.User;
 import com.leoyu.springbootmall.service.UserService;
@@ -25,5 +26,13 @@ public class UserController {
         User user = userService.getUserById(UserId);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(user);
+    }
+
+    @PostMapping("/users/login")
+    public ResponseEntity<User> login(@RequestBody @Valid UserLoginRequest userLoginRequest) {
+        User user = userService.login(userLoginRequest);
+
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+
     }
 }
