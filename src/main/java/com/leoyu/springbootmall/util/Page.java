@@ -4,9 +4,15 @@ import java.util.List;
 
 public class Page <T>{
 
+    /** 每頁筆數 **/
     private Integer limit;
+
+    /** 當前頁數 **/
     private Integer offset;
+
+    /** 總共筆數 **/
     private Integer total;
+
     private List<T> result;
 
     public Integer getLimit() {
