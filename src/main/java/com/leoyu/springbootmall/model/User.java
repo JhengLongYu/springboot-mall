@@ -1,14 +1,22 @@
 package com.leoyu.springbootmall.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 public class User {
 
     private Integer UserId;
+
     private String email;
+
+    @JsonIgnore
     private String password;
+
     private Date createdDate;
+
     private Date lastModifiedDate;
 
     public Integer getUserId() {
